@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useStore } from "../store";
 import { SetRecord, Product } from "../types";
 import VerificationFlow from "./VerificationFlow";
+import AddressAutocomplete from "./AddressAutocomplete";
 
 type Screen = "home" | "form" | "verifying" | "done";
 
@@ -188,12 +189,10 @@ export default function RepView() {
 
           <div>
             <label className="text-sm font-medium text-gray-700 block mb-1">Address *</label>
-            <input
+            <AddressAutocomplete
               required
               value={form.address}
-              onChange={e => setForm(f => ({ ...f, address: e.target.value }))}
-              placeholder="123 Main St, City, NJ"
-              className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm outline-none focus:border-[#166534] transition-colors"
+              onChange={val => setForm(f => ({ ...f, address: val }))}
             />
           </div>
 
