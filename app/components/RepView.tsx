@@ -172,8 +172,16 @@ export default function RepView() {
               required
               type="tel"
               value={form.phone}
-              onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
-              placeholder="(xxx) xxx-xxxx"
+              onChange={e => {
+                const digits = e.target.value.replace(/\D/g, "").slice(0, 10);
+                const formatted =
+                  digits.length <= 3 ? digits :
+                  digits.length <= 6 ? `${digits.slice(0,3)}-${digits.slice(3)}` :
+                  `${digits.slice(0,3)}-${digits.slice(3,6)}-${digits.slice(6)}`;
+                setForm(f => ({ ...f, phone: formatted }));
+              }}
+              placeholder="111-123-3456"
+              maxLength={12}
               className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm outline-none focus:border-[#166534] transition-colors"
             />
           </div>
