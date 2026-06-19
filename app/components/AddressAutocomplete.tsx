@@ -103,7 +103,7 @@ export default function AddressAutocomplete({ value, onChange, required }: Props
           onKeyDown={handleKey}
           placeholder="Start typing an address…"
           autoComplete="off"
-          className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm outline-none focus:border-[#166534] transition-colors pr-8"
+          className="w-full border border-gray-200 rounded-xl px-4 py-3.5 text-base outline-none focus:border-[#166534] focus:ring-1 focus:ring-[#166534]/20 transition-colors pr-10 bg-white"
         />
         {loading && (
           <div className="absolute right-3 top-1/2 -translate-y-1/2">

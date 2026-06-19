@@ -11,28 +11,35 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <header className="bg-[#166534] text-white shadow-lg sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center shrink-0">
               <span className="text-[#166534] font-black text-sm">SP</span>
             </div>
-            <div>
-              <div className="font-bold text-base leading-tight">SetProof</div>
-              <div className="text-green-200 text-xs">Green Star Exteriors</div>
+            <div className="min-w-0">
+              <div className="font-bold text-sm leading-tight">SetProof</div>
+              <div className="text-green-200 text-xs truncate">Green Star Exteriors</div>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={resetSets}
-              className="text-xs text-green-200 border border-green-600 px-2 py-1 rounded hover:bg-green-700 transition-colors"
+              className="text-xs text-green-200 border border-green-600 px-2.5 py-1.5 rounded-lg hover:bg-green-700 transition-colors hidden sm:block"
             >
-              Reset Demo
+              Reset
             </button>
-            <div className="bg-green-700 rounded-lg p-1 flex gap-1">
+            <button
+              onClick={resetSets}
+              className="text-green-200 border border-green-600 w-8 h-8 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center sm:hidden text-base"
+              title="Reset Demo"
+            >
+              ↺
+            </button>
+            <div className="bg-green-700 rounded-lg p-1 flex gap-0.5">
               <button
                 onClick={() => setView("rep")}
                 className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
-                  view === "rep" ? "bg-white text-[#166534]" : "text-green-100 hover:text-white"
+                  view === "rep" ? "bg-white text-[#166534]" : "text-green-100"
                 }`}
               >
                 📱 Rep
@@ -40,10 +47,10 @@ export default function Home() {
               <button
                 onClick={() => setView("dispatch")}
                 className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
-                  view === "dispatch" ? "bg-white text-[#166534]" : "text-green-100 hover:text-white"
+                  view === "dispatch" ? "bg-white text-[#166534]" : "text-green-100"
                 }`}
               >
-                🖥 Dispatch
+                🖥 <span className="hidden sm:inline">Dispatch</span><span className="sm:hidden">Dash</span>
               </button>
             </div>
           </div>
